@@ -1,0 +1,26 @@
+.cart {
+  padding: 2rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-item h3 {
+  margin: 0;
+}
+
+.cart-item button {
+  color: red;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cart-total {
+  font-weight: bold;
+  margin-top: 1rem;
+}
