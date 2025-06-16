@@ -4,7 +4,7 @@ import App from './App';
 
 // Import global and custom styles
 import './index.css';
-import './styles/app.css';
+import './styles/App.css';
 import './styles/navbar.css';
 import './styles/home.css';
 import './styles/footer.css';

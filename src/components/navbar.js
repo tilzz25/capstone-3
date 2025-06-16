@@ -1,18 +1,26 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from './cart';
+import '../styles/navbar.css';
 
+const Navbar = () => {
+  const { cart } = useCart();
+  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
 
-function Navbar() {
   return (
-    <nav className="nav-main">
-      <h1 className="text-xl font-bold">SmartShop</h1>
-      <div className="space-x-4">
-        <Link to="/">Home</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/cart">Cart</Link>
-        <Link to="/checkout">Checkout</Link>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <Link to="/">SmartShop</Link>
       </div>
+
+      <ul className="navbar-links">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/products">Products</Link></li>
+        <li><Link to="/cart">Cart ({totalItems})</Link></li>
+        <li><Link to="/checkout">Checkout</Link></li>
+      </ul>
     </nav>
   );
-}
+};
 
 export default Navbar;

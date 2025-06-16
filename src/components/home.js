@@ -1,13 +1,11 @@
 import React from 'react';
+import '../styles/home.css';
 
-function Home() {
-  return (
-    <div className="p-4">
-      <h2 className="text-2xl font-semibold">Welcome to SmartShop!</h2>
-      <p>Your one-stop shop for cricket gear.</p>
-    </div>
-  );
-}
+const Home = () => (
+  <div className="home">
+    <h1>Welcome to SmartShop</h1>
+    <p>Your one-stop shop for quality cricket equipment!</p>
+  </div>
+);
 
 export default Home;
-
