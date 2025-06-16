@@ -36,3 +36,28 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+// ✅ New Cart UI Component
+const Cart = () => {
+  const { cart, removeFromCart } = useCart();
+
+  return (
+    <div>
+      <h2>Your Cart</h2>
+      {cart.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <ul>
+          {cart.map((item) => (
+            <li key={item.id}>
+              {item.name} x {item.qty}
+              <button onClick={() => removeFromCart(item.id)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default Cart;
