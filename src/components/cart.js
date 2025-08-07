@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Create the context
+
 const CartContext = createContext();
 
-// Hook to access the cart
+
 export const useCart = () => useContext(CartContext);
 
-// CartProvider for wrapping your app
+
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     try {
@@ -18,12 +18,10 @@ export const CartProvider = ({ children }) => {
     }
   });
 
-  // Persist cart to localStorage on change
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  // Add item or increase quantity
   const addToCart = (product) => {
     setCart((prev) => {
       const found = prev.find((item) => item.id === product.id);
@@ -36,7 +34,6 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  // Decrease quantity or remove if qty = 1
   const decreaseQty = (id) => {
     setCart((prev) =>
       prev
@@ -47,12 +44,10 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // Remove item completely
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // Clear entire cart
   const clearCart = () => {
     setCart([]);
   };
@@ -66,7 +61,7 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-// ✅ Cart UI Component
+
 const Cart = () => {
   const { cart, addToCart, decreaseQty, removeFromCart, clearCart } = useCart();
 
