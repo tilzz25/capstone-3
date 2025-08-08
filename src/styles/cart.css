@@ -47,7 +47,7 @@
 }
 
 .cart li:last-child {
-  border-bottom: none;
+  border-bottom: bottom ;
 }
 
 .cart li span {
